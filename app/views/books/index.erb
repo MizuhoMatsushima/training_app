@@ -1,0 +1,6 @@
+<%= form_with model: @book, url: book_path, method: :post do |f| %>
+  <%= f.label :title, 'タイトル' %>
+  <%= f.text_field :title %>
+  <%= f.label :body, '紹介文' %>
+  <%= f.text_area :body %>
+<% end %>
