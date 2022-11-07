@@ -1,6 +1,29 @@
-<%= form_with model: @book, url: book_path, method: :post do |f| %>
-  <%= f.label :title, 'タイトル' %>
-  <%= f.text_field :title %>
-  <%= f.label :body, '紹介文' %>
-  <%= f.text_area :body %>
-<% end %>
+<h1>Book感想掲示板</h1>
+<div>
+  <%= form_with model: @book, url: book_path, method: :post do |f| %>
+    <table>
+      <tbody>
+        <tr>
+          <td><%= f.label :title, 'タイトル' %></td>
+          <td><%= f.text_field :title %></td>
+        </tr>
+        <tr>
+          <td><%= f.label :body, '紹介文' %></td>
+          <td><%= f.text_area :body %></td>
+        </tr>
+        <%= f.fields_for :middle_of_tags do |ff| %>
+          <tr>
+            <td><%= ff.label :tag_id, 'タグ' %></td>
+            <td><%= ff.text_field :tag_id %></td>
+          </tr>
+        <% end %>
+        <tr>
+          <td></td>
+          <td><%= f.submit :投稿 %></td>
+        </tr>
+      </tbody>
+    </table>
+  <% end %>
+</div>
+
+
