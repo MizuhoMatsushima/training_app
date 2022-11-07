@@ -11,12 +11,10 @@
           <td><%= f.label :body, '紹介文' %></td>
           <td><%= f.text_area :body %></td>
         </tr>
-        <%= f.fields_for :middle_of_tags do |ff| %>
-          <tr>
-            <td><%= ff.label :tag_id, 'タグ' %></td>
-            <td><%= ff.text_field :tag_id %></td>
-          </tr>
-        <% end %>
+        <tr>
+          <td><%= f.label :name, 'タグ' %></td>
+          <td><%= f.text_field :name %></td>
+        </tr>
         <tr>
           <td></td>
           <td><%= f.submit :投稿 %></td>

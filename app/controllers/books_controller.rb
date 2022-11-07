@@ -6,8 +6,9 @@ class BooksController < ApplicationController
 
   def create
     @book = Book.new(book_params)
-    if @book.save
-      redirect_to books_index_path
+    tag_list = params[:book][:name].split(',')
+    if @book.save & @book.save_tag(tag_list)
+      redirect_to books_index_path,notice: '投稿が完了しました'
     else
       render index
     end
@@ -22,7 +23,7 @@ class BooksController < ApplicationController
   private
 
   def book_params
-    params.require(:book).permit(:title, :body, middle_of_tags_attributes:[:id, :tag_id])
+    params.require(:book).permit(:title, :body)
   end
 
 end
