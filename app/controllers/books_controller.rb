@@ -8,7 +8,7 @@ class BooksController < ApplicationController
     @book = Book.new(book_params)
     tag_list = params[:book][:name].split(',')
     if @book.save & @book.save_tag(tag_list)
-      redirect_to books_index_path,notice: '投稿が完了しました'
+      redirect_to books_index_path, notice: '投稿が完了しました'
     else
       render index
     end
