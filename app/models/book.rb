@@ -12,4 +12,11 @@ class Book < ApplicationRecord
       self.tags << new_book_tag
     end
   end
+
+  def a
+
+  end
+
+  end
+
 end
