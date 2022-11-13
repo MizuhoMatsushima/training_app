@@ -13,10 +13,4 @@ class Book < ApplicationRecord
     end
   end
 
-  def a
-
-  end
-
-  end
-
 end
